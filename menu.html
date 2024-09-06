@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>QR Menü</title>
+    <!-- Font Awesome CSS link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS kodlarınızı burada saklayın */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .menu-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 25px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 30px;
+            background: linear-gradient(135deg, #1c1c1c, #4a4a4a);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .header img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 1.2em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 0.9em;
+            color: #c0c0c0;
+        }
+
+        .social-icons {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ffcc00;
+        }
+
+        .category {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .category h2 {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .category h2:hover {
+            background-color: #5e3b28;
+        }
+
+        .menu-items {
+            display: none;
+            background-color: #fafafa;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu-item img {
+            width: 100px;
+            height: 75px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h3 {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .menu-item p {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #5e3b28;
+        }
+
+        .google-review {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .google-review a {
+            text-decoration: none;
+            color: #4285F4;
+            font-size: 1em;
+            font-weight: 500;
+            display: inline-block;
+            padding: 8px 15px;
+            border: 2px solid #4285F4;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .google-review a:hover {
+            background-color: #4285F4;
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .menu-container {
+                padding: 15px;
+            }
+
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-item img {
+                width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .price {
+                align-self: flex-end;
+                margin-top: 5px;
+            }
+
+            .header h1 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <div class="header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV_jp8xl38br_FGzkisyQzjkfsfq7IR5zpyQ&s" alt="Firma Logosu">
+            <h1>ERKAYA CAFE</h1>
+            <h2>Unutulmaz Tatlar, Eşsiz Deneyim</h2>
+            <p>1234 Sokak Adı, Şehir, Ülke | (123) 456-7890</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Menü Kategorileri Dinamik Olarak Eklenecek -->
+        <div id="menuContent"></div>
+
+        <div class="google-review">
+            <a href="https://www.google.com/search?q=ERKAYA+CAFE&source=lmns&bih=657&biw=1366&hl=tr&sa=X&ved=2ahUKEwjXx5m6z8b5AhUih_0HHYHuC3wQ_AUoAXoECAEQAQ" target="_blank">
+                Google Yorum Yap
+            </a>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+    <script>
+        // Firebase yapılandırması
+        const firebaseConfig = {
+  apiKey: "AIzaSyA16M_6xOrUGEn9YCdzIFxBYXr-9ST7IWY",
+  authDomain: "qrmenuapplication-9b920.firebaseapp.com",
+  databaseURL: "https://qrmenuapplication-9b920-default-rtdb.firebaseio.com",
+  projectId: "qrmenuapplication-9b920",
+  storageBucket: "qrmenuapplication-9b920.appspot.com",
+  messagingSenderId: "1050979828232",
+  appId: "1:1050979828232:web:54d81e21056193bee147bd",
+  measurementId: "G-C3S611TREX"
+};
+
+
+        // Firebase'i başlat
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Menü öğelerini Firebase'den çekip kategoriye göre ayırma
+        function fetchMenuItems() {
+            const menuContent = document.getElementById('menuContent');
+            const categories = {};
+
+            database.ref('Products').once('value', (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    const product = childSnapshot.val();
+                    if (!categories[product.category]) {
+                        categories[product.category] = [];
+                    }
+                    categories[product.category].push(product);
+                });
+
+                // Kategorileri oluştur ve ürünleri ekle
+                for (let category in categories) {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.classList.add('category');
+
+                    const categoryTitle = document.createElement('h2');
+                    categoryTitle.textContent = category;
+                    categoryTitle.setAttribute('onclick', `toggleMenu('${category}')`);
+                    categoryDiv.appendChild(categoryTitle);
+
+                    const menuItemsDiv = document.createElement('div');
+                    menuItemsDiv.classList.add('menu-items');
+                    menuItemsDiv.id = category;
+
+                    categories[category].forEach(product => {
+                        const menuItemDiv = document.createElement('div');
+                        menuItemDiv.classList.add('menu-item');
+
+                        menuItemDiv.innerHTML = `
+                            <img src="${product.imageUrl}" alt="${product.productName}">
+                            <div>
+                                <h3>${product.productName}</h3>
+                                <p>${product.description}</p>
+                            </div>
+                            <span class="price">₺${product.price}</span>
+                        `;
+
+                        menuItemsDiv.appendChild(menuItemDiv);
+                    });
+
+                    categoryDiv.appendChild(menuItemsDiv);
+                    menuContent.appendChild(categoryDiv);
+                }
+            });
+        }
+
+        // Menü öğesini aç/kapat
+        function toggleMenu(categoryId) {
+            const menu = document.getElementById(categoryId);
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        // Sayfa yüklendiğinde ürünleri yükle
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchMenuItems();
+        });
+    </script>
+</body>
+</html>
